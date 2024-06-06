@@ -26,7 +26,7 @@ const  GithubStarCount = ({ repoUrl }: { repoUrl: string })=> {
 
   return (
     <>
-      <div className="mx-2 hidden md:block min-w-[180px]">
+      <div className="mx-2 block min-w-[180px]">
         <a
           className="items-center text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 bg-primary text-primary-foreground hover:bg-primary/90 group relative flex w-full justify-start gap-2 overflow-hidden whitespace-pre rounded-sm dark:bg-muted dark:text-foreground hover:ring-2 hover:ring-primary hover:ring-offset-2 transition-all duration-300 ease-out"
           target="_blank"
@@ -40,7 +40,7 @@ const  GithubStarCount = ({ repoUrl }: { repoUrl: string })=> {
             ></path>
           </svg>
           Star on GitHub
-          <div className="hidden items-center gap-1 text-sm text-muted-foreground md:flex">
+          <div className="items-center gap-1 text-sm text-muted-foreground flex">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -55,9 +55,7 @@ const  GithubStarCount = ({ repoUrl }: { repoUrl: string })=> {
             >
               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
             </svg>
-            {/* <p className="font-medium text-background dark:text-foreground">
-              {starCount}
-            </p> */}
+       
           </div>
         </a>
       </div>

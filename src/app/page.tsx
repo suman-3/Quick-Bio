@@ -12,8 +12,8 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="grid relative grid-cols-2 gap-12 p-24">
-      <div className="col-span-full w-full flex flex-col items-center justify-center space-y-4 mb-4 text-center">
+    <main className="grid relative grid-cols-1 slg:grid-cols-2 gap-12 px-4 py-12 sm:py-16 sm:px-8 md:px-10 slg:p-16 lg:p-24">
+      <div className="col-span-full w-full flex flex-col items-center justify-center space-y-2  sm:space-y-4 mb-4 text-center">
         {/* <Link
           href="https://github.com/suman-3/ai-powered-bio-gen"
           target="_blank"
@@ -28,11 +28,11 @@ export default function Home() {
         {/* </Link> */}
 
         <GithubStarCount repoUrl="https://github.com/suman-3/ai-powered-bio-gen" />
-        <h1 className="font-extrabold text-7xl text-center w-full lg:w-[90%] uppercase mx-auto pt-4 pb-2 select-none pointer-events-none">
+        <h1 className="font-extrabold text-4xl md:text-5xl slg:text-6xl lg:text-7xl text-center w-full lg:w-[90%] uppercase mx-auto pt-4 pb-2 select-none pointer-events-none">
           CRAFT THE PERFECT PROFILE BIO IN SECONDS!
         </h1>
         <SparklesText
-          className="text-md md:text-lg lg:text-xl text-accent select-none pointer-events-none"
+          className="text-sm sm:text-base md:text-lg lg:text-xl text-accent select-none pointer-events-none"
           text="Just answer a few questions, and we'll generate a bio that captures who you are."
         />
       </div>
