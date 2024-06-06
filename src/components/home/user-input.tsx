@@ -37,6 +37,7 @@ import { Switch } from "../ui/switch";
 import { generateBio } from "@/actions/action";
 import { useContext } from "react";
 import { BioContext } from "@/context/bio-context";
+import { toast } from "sonner";
 
 export const UserInput = () => {
   const formSchema = z.object({
@@ -95,9 +96,11 @@ export const UserInput = () => {
         values.model
       );
 
+      toast("Bio Generated");
       setOutput(data);
     } catch (error: any) {
       console.log(error);
+      toast("something went wrong try again");
     } finally {
       setLoading(false);
     }
