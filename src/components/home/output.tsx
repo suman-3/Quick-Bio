@@ -26,7 +26,7 @@ export const Output = () => {
       {loading ? (
         <Skeleton className="w-full h-full z-10 bg-primary/10" />
       ) : (
-        <ul className="flex flex-col items-start justify-start space-y-8 sm:space-y-10 lg:space-y-12 py-5 px-4 pt-12 sm:px-5 sm:py-6 xs:py-10 xs:px-7 lg:py-14 lg:px-10">
+        <ul className="flex flex-col items-start justify-start space-y-9 sm:space-y-10 lg:space-y-12 py-5 px-4 pt-12 sm:px-5 sm:py-6 xs:py-10 xs:px-7 lg:py-14 lg:px-10">
           {output.data.map((data, index) => {
             return (
               <li
