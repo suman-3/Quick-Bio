@@ -24,10 +24,6 @@ const BlurIn = ({ word, className, variant, duration = 1 }: BlurIntProps) => {
       animate="visible"
       transition={{ duration }}
       variants={combinedVariants}
-      className={cn(
-        className,
-        "font-display text-center font-bold tracking-[-0.02em] drop-shadow-sm  md:leading-[1rem]",
-      )}
     >
       {word}
     </motion.h1>

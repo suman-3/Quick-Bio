@@ -72,7 +72,7 @@ export async function generateBio(
       ),
     }),
   });
-  console.log(warnings, finishReason, rawResponse);
+  // console.log(warnings, finishReason, rawResponse);
 
   return { data };
 }
