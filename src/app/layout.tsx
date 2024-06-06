@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import GridPattern from "@/components/magicui/grid-pattern";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/sonner";
+import { ThemeProvider } from "./theme-provider";
 
 export const metadata: Metadata = {
   title: "Qick Bio",
@@ -22,7 +23,16 @@ export default function RootLayout({
     <html lang="en">
       <body className={cn(GeistSans.variable, "font-sans")}>
         <GridPattern width={60} height={60} className="-z-10 opacity-75" />
-        <TooltipProvider>{children}</TooltipProvider>
+        <TooltipProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </TooltipProvider>
         <Toaster />
       </body>
     </html>
