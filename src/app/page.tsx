@@ -1,5 +1,6 @@
 import { Output } from "@/components/home/output";
 import { UserInput } from "@/components/home/user-input";
+
 import AnimatedGradientText from "@/components/magicui/animated-gradient-text";
 import BlurIn from "@/components/magicui/blur-in";
 import SparklesText from "@/components/magicui/sparkles-text";
