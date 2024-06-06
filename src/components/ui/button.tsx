@@ -60,6 +60,8 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
+  isLoading?: boolean;
+  loadingText?: string;
 }
 
 export type ButtonIconProps = IconProps | IconRefProps;
@@ -75,7 +77,10 @@ const Button = React.forwardRef<
       size,
       asChild = false,
       Icon,
+      isLoading,
+      loadingText,
       iconPlacement,
+      children,
       ...props
     },
     ref
@@ -87,16 +92,13 @@ const Button = React.forwardRef<
         ref={ref}
         {...props}
       >
-        {Icon && iconPlacement === "left" && (
-          <div className="w-0 translate-x-[0%] pr-0 opacity-0 transition-all duration-200 group-hover:w-5 group-hover:translate-x-100 group-hover:pr-2 group-hover:opacity-100">
-            <Icon />
-          </div>
-        )}
-        <Slottable>{props.children}</Slottable>
-        {Icon && iconPlacement === "right" && (
-          <div className="w-0 translate-x-[100%] pl-0 opacity-0 transition-all duration-200 group-hover:w-5 group-hover:translate-x-0 group-hover:pl-2 group-hover:opacity-100">
-            <Icon />
-          </div>
+        {isLoading && loadingText ? loadingText : children}
+        {isLoading && (
+          <span className="ml-1.5 flex items-center gap-1">
+            <span className="animate-flashing w-1 h-1 bg-white rounded-full inline-block" />
+            <span className="animate-flashing delay-100 w-1 h-1 bg-white rounded-full inline-block" />
+            <span className="animate-flashing delay-200 w-1 h-1 bg-white rounded-full inline-block" />
+          </span>
         )}
       </Comp>
     );
@@ -105,4 +107,3 @@ const Button = React.forwardRef<
 Button.displayName = "Button";
 
 export { Button, buttonVariants };
-        

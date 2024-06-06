@@ -84,6 +84,10 @@ const config = {
             "offset-distance": "100%",
           },
         },
+        flashing: {
+          "0%, 100%": { opacity: "0.2" },
+          "20%": { opacity: "1" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -91,6 +95,7 @@ const config = {
         gradient: "gradient 8s linear infinite",
         shine: "shine 8s ease-in-out infinite",
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
+        flashing: "flashing 1.4s infinite linear",
       },
     },
   },
