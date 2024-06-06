@@ -1,3 +1,5 @@
+import { Output } from "@/components/home/output";
+import { UserInput } from "@/components/home/user-input";
 import AnimatedGradientText from "@/components/magicui/animated-gradient-text";
 import BlurIn from "@/components/magicui/blur-in";
 import SparklesText from "@/components/magicui/sparkles-text";
@@ -8,8 +10,8 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="w-full flex flex-col items-center justify-center space-y-4 mb-4 text-center">
+    <main className="grid relative grid-cols-2 gap-12 p-24">
+      <div className="col-span-full w-full flex flex-col items-center justify-center space-y-4 mb-4 text-center">
         {/* <Link
           href="https://github.com/suman-3/ai-powered-bio-gen"
           target="_blank"
@@ -21,24 +23,20 @@ export default function Home() {
             Star On Github
             <ChevronRight className="ml-1 size-3 transition-transform delay-300 ease-in-out group-hover:translate-x-0.5" />
           </AnimatedGradientText> */}
-        <GithubStarCount repoUrl="https://github.com/suman-3/ai-powered-bio-gen" />
         {/* </Link> */}
 
-        {/* <SparklesText
-          className="font-extrabold text-7xl text-center w-full lg:w-[90%] uppercase mx-auto pt-4 pb-2"
-          text="CRAFT THE PERFECT PROFILE BIO IN SECONDS!"
-        /> */}
-
-        <h1
-        className="font-extrabold text-7xl text-center w-full lg:w-[90%] uppercase mx-auto pt-4 pb-2"
-        >
-        CRAFT THE PERFECT PROFILE BIO IN SECONDS!
+        <GithubStarCount repoUrl="https://github.com/suman-3/ai-powered-bio-gen" />
+        <h1 className="font-extrabold text-7xl text-center w-full lg:w-[90%] uppercase mx-auto pt-4 pb-2 select-none pointer-events-none">
+          CRAFT THE PERFECT PROFILE BIO IN SECONDS!
         </h1>
-        <BlurIn
-          className="text-lg text-accent p-0"
-          word="Just answer a few questions, and we'll generate a bio that captures who you are."
+        <SparklesText
+          className="text-md md:text-lg lg:text-xl text-accent select-none pointer-events-none"
+          text="Just answer a few questions, and we'll generate a bio that captures who you are."
         />
       </div>
+
+      <UserInput />
+      <Output />
     </main>
   );
 }
