@@ -1,4 +1,4 @@
-# BioGenie
+# Quick Bio
 
 BioGenie is an AI-powered bio generation website that creates personalized and engaging bios based on user input. Using state-of-the-art technologies like Next.js, TypeScript, Tailwind CSS, and Groq AI, BioGenie offers a seamless experience for generating professional and social media bios quickly.
 
