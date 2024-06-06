@@ -34,6 +34,9 @@ import { Slider } from "../ui/slider";
 import { Info, Sparkles } from "lucide-react";
 import { Textarea } from "../ui/textarea";
 import { Switch } from "../ui/switch";
+import { generateBio } from "@/actions/action";
+import { useContext } from "react";
+import { BioContext } from "@/context/bio-context";
 
 export const UserInput = () => {
   const formSchema = z.object({
@@ -74,8 +77,30 @@ export const UserInput = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  const { setOutput, setLoading, loading } = useContext(BioContext);
+
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setLoading(true);
+    const userInputValues = `
+    User Input : ${values.content}
+    Bio Type: ${values.type}
+    Tone: ${values.tone}
+    Emojis: ${values.emojis}
+    `;
+
+    try {
+      const { data } = await generateBio(
+        userInputValues,
+        values.tempareture,
+        values.model
+      );
+
+      setOutput(data);
+    } catch (error: any) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -309,7 +334,12 @@ export const UserInput = () => {
             </div>
           </fieldset>
 
-          <Button className="flex items-center gap-2" variant="gooeyRight">
+          <Button
+            isLoading={loading}
+            loadingText="Generating"
+            className="flex items-center gap-2"
+            variant="gooeyRight"
+          >
             <Sparkles className="size-4" />
             Generate
           </Button>

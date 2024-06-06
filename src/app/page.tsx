@@ -5,6 +5,7 @@ import AnimatedGradientText from "@/components/magicui/animated-gradient-text";
 import BlurIn from "@/components/magicui/blur-in";
 import SparklesText from "@/components/magicui/sparkles-text";
 import GithubStarCount from "@/components/star-on-github";
+import { BioProvider } from "@/context/bio-context";
 import { ChevronRight, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -36,8 +37,10 @@ export default function Home() {
         />
       </div>
 
-      <UserInput />
-      <Output />
+      <BioProvider>
+        <UserInput />
+        <Output />
+      </BioProvider>
     </main>
   );
 }
