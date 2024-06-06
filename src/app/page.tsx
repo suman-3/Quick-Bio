@@ -10,6 +10,7 @@ import { BioProvider } from "@/context/bio-context";
 import { ChevronRight, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { ProductHunt } from "./product-hunt-icon";
 
 export default function Home() {
   return (
@@ -28,10 +29,14 @@ export default function Home() {
           </AnimatedGradientText> */}
         {/* </Link> */}
 
-        <div className="flex gap-2 justify-end w-full">
+        <div className="flex gap-2 items-center justify-end w-full">
           <ModeToggle />
         </div>
-        <GithubStarCount repoUrl="https://github.com/suman-3/ai-powered-bio-gen" />
+        <div className="flex gap-4 justify-center items-center w-full pb-5">
+          <GithubStarCount repoUrl="https://github.com/suman-3/ai-powered-bio-gen" />
+          <ProductHunt />
+        </div>
+
         <h1 className="font-extrabold text-4xl md:text-5xl slg:text-6xl lg:text-7xl text-center w-full lg:w-[90%] uppercase mx-auto pt-4 pb-2 select-none pointer-events-none">
           CRAFT THE PERFECT PROFILE BIO IN SECONDS!
         </h1>
