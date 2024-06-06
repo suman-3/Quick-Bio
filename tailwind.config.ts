@@ -92,6 +92,14 @@ const config = {
           "0%, 100%": { opacity: "0.2" },
           "20%": { opacity: "1" },
         },
+        "background-shine": {
+          "from": {
+            "backgroundPosition": "0 0"
+          },
+          "to": {
+            "backgroundPosition": "-200% 0"
+          }
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -100,6 +108,7 @@ const config = {
         shine: "shine 8s ease-in-out infinite",
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
         flashing: "flashing 1.4s infinite linear",
+         "background-shine": "background-shine 2s linear infinite"
       },
     },
   },
