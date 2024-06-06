@@ -113,8 +113,8 @@ export const UserInput = () => {
           onSubmit={form.handleSubmit(onSubmit)}
           className="grid w-full items-start gap-6"
         >
-          <fieldset className="grid gap-6 rounded-[8px] border p-4 bg-background/10 backdrop-blur-sm">
-            <legend className="-ml-1 px-1 font-medium text-sm text-gray-600">
+          <fieldset className="grid gap-6 rounded-[8px] border p-4 bg-background/10 dark:bg-gray-300/10 backdrop-blur-sm">
+            <legend className="-ml-1 px-1 font-medium text-sm text-gray-600 dark:text-slate-50">
               Settings
             </legend>
             <div className="grid gap-3">
@@ -229,8 +229,8 @@ export const UserInput = () => {
             </div>
           </fieldset>
 
-          <fieldset className="grid gap-6 rounded-[8px] border p-4 bg-background/10 backdrop-blur-sm">
-            <legend className="-ml-1 px-1 text-sm font-medium text-gray-600">
+          <fieldset className="grid gap-6 rounded-[8px] border p-4 bg-background/10 dark:bg-gray-300/10 backdrop-blur-sm">
+            <legend className="-ml-1 px-1 text-sm font-medium text-gray-600 dark:text-slate-50">
               User Input
             </legend>
 
