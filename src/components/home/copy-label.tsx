@@ -8,7 +8,7 @@ const CopyLabel = ({ text }: { text: string }) => {
   const copyToClipboard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
-      toast("Bio copied to clipboard");
+      toast("Copied to clipboard");
     } catch (err) {
       console.error("Failed to copy the text: ", err);
     }

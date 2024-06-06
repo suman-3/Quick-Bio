@@ -341,7 +341,7 @@ export const UserInput = () => {
             isLoading={loading}
             loadingText="Generating"
             className="flex items-center gap-2"
-            variant="gooeyRight"
+            variant="shine"
           >
             <Sparkles className="size-4" />
             Generate

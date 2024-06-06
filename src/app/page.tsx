@@ -23,7 +23,7 @@ export default function Home() {
         </h1>
         <SparklesText
           className="text-sm sm:text-base md:text-lg lg:text-xl text-accent select-none pointer-events-none"
-          text="Just answer a few questions, and we'll generate a bio that captures who you are."
+          text="Just provide some details , and we'll generate a bio that captures who you are."
         />
       </div>
       <BioProvider>
