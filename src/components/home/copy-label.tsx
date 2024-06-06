@@ -23,7 +23,7 @@ const CopyLabel = ({ text }: { text: string }) => {
     <Button
       onClick={handleClick}
       variant={"outline"}
-      className="text-sm text-muted-foreground bg-background my-0 h-auto rounded-none rounded-tl-md border border-primary/20  hover:bg-primary hover:text-primary-foreground pt-0 pb-0.5"
+      className="text-sm text-muted-foreground bg-background my-0 h-auto rounded-none rounded-bl-md rounded-br-md border border-primary/20  hover:bg-primary hover:text-primary-foreground pt-0 pb-0.5"
     >
       {label}
     </Button>

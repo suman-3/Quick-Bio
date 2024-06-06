@@ -33,7 +33,7 @@ export const Output = () => {
                 className="w-full text-base border border-primary/20 rounded-md p-4 relative bg-background rounded-br-none"
               >
                 {data.bio}
-                <span className="absolute top-[86%] right-[-0.5px]">
+                <span className="absolute top-[99%] right-[-0.5px]">
                   <CopyLabel text={data.bio} />
                 </span>
               </li>
