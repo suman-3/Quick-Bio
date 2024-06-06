@@ -5,12 +5,13 @@ import { BorderBeam } from "../magicui/border-beam";
 import { BioContext } from "@/context/bio-context";
 import { Skeleton } from "../ui/skeleton";
 import CopyLabel from "./copy-label";
+import { ScrollArea } from "../ui/scroll-area";
 
 export const Output = () => {
   const { output, loading } = useContext(BioContext);
 
   return (
-    <div className="relative flex min-h-[50vh] mt-2 flex-col rounded-xl bg-muted/50 backdrop-blur-sm overflow-hidden border border-primary/5">
+    <ScrollArea className="relative flex min-h-[100vh] max-h-[100vh] mt-2 flex-col rounded-xl bg-muted/50 backdrop-blur-sm overflow-hidden border border-primary/5">
       {loading && (
         <BorderBeam
           size={1200}
@@ -41,6 +42,6 @@ export const Output = () => {
           })}
         </ul>
       )}
-    </div>
+    </ScrollArea>
   );
 };
