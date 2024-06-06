@@ -35,7 +35,7 @@ Ensure you have the following installed on your machine:
    setup .env file with Groq API KEY
    npm run dev
 
-   Now Your Project is Redcy
+   Now Your Project is Ready
 
 ```
 
