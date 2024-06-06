@@ -34,6 +34,10 @@ import { Slider } from "../ui/slider";
 import { Info, Sparkles } from "lucide-react";
 import { Textarea } from "../ui/textarea";
 import { Switch } from "../ui/switch";
+import { generateBio } from "@/actions/action";
+import { useContext } from "react";
+import { BioContext } from "@/context/bio-context";
+import { toast } from "sonner";
 
 export const UserInput = () => {
   const formSchema = z.object({
@@ -74,8 +78,32 @@ export const UserInput = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  const { setOutput, setLoading, loading } = useContext(BioContext);
+
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setLoading(true);
+    const userInputValues = `
+    User Input : ${values.content}
+    Bio Type: ${values.type}
+    Tone: ${values.tone}
+    Emojis: ${values.emojis}
+    `;
+
+    try {
+      const { data } = await generateBio(
+        userInputValues,
+        values.tempareture,
+        values.model
+      );
+
+      toast("Bio Generated");
+      setOutput(data);
+    } catch (error: any) {
+      console.log(error);
+      toast("something went wrong try again");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -227,7 +255,7 @@ export const UserInput = () => {
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
               <FormField
                 control={form.control}
                 name="type"
@@ -309,7 +337,12 @@ export const UserInput = () => {
             </div>
           </fieldset>
 
-          <Button className="flex items-center gap-2" variant="gooeyRight">
+          <Button
+            isLoading={loading}
+            loadingText="Generating"
+            className="flex items-center gap-2"
+            variant="gooeyRight"
+          >
             <Sparkles className="size-4" />
             Generate
           </Button>
