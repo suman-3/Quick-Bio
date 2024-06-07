@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Badge } from "../ui/badge";
 import { BorderBeam } from "../magicui/border-beam";
 import { BioContext } from "@/context/bio-context";
@@ -11,12 +11,15 @@ import { RefreshButton } from "../refresh-button";
 import { useRouter } from "next/navigation";
 
 export const Output = () => {
-  const { output, loading, setOutput } = useContext(BioContext);
+  const { output, loading } = useContext(BioContext);
+  const [count, setCount] = useState(0);
   const router = useRouter();
   const defaultVariants = {
     hidden: { filter: "blur(10px)", opacity: 0 },
     visible: { filter: "blur(0px)", opacity: 1 },
   };
+
+
   return (
     <ScrollArea className="relative flex min-h-[100vh] max-h-[100vh] mt-2 flex-col rounded-xl bg-muted/50 backdrop-blur-sm overflow-hidden border border-gray-500/50">
       {loading && (
@@ -28,9 +31,7 @@ export const Output = () => {
           className="z-10"
         />
       )}
-      <div
-        className="flex items-center justify-end gap-3 pr-3 pt-2"
-      >
+      <div className="flex items-center justify-end gap-3 pr-3 pt-2">
         <RefreshButton />
         <Badge className="z-20 inline-flex h-auto animate-background-shine cursor-pointer items-center justify-center rounded-full border border-gray-800 bg-[linear-gradient(110deg,#000,45%,#4D4B4B,55%,#000)] bg-[length:250%_100%] px-4 py-1 text-xs font-medium text-gray-300 ">
           Output
