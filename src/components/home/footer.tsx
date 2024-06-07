@@ -13,15 +13,28 @@ interface FooterProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export const Footer = ({ className }: FooterProps) => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <div
       className={cn(
-        "w-full h-[20vh] bg-gray-900/5 backdrop-blur-sm flex items-center justify-between border-t px-10 py-2",
+        "w-full h-[17vh] md:h-[15vh] bg-gray-900/5 backdrop-blur-sm  flex flex-col-reverse md:flex-row items-center justify-between pt-8 md:py-0 border-t px-10",
         className
       )}
     >
-      <div>content 2</div>
-      <div className="">
+      <div className="mb-3 mt-1 md:mb-0">
+        <p className="text-sm">
+          &copy; {currentYear}, Built with ❤️ by{" "}
+          <a
+            href="https://suman-mondal-portfolio.vercel.app/"
+            target="_blank"
+            className="font-semibold cursor-pointer"
+          >
+            Suman
+          </a>{" "}
+        </p>
+      </div>
+      <div className="pt-6 md:pt-0 -mt-6 flex items-center justify-center">
         <Dock className="flex items-center">
           <DockIcon className="">
             <NextJsIcon className="size-6" />
