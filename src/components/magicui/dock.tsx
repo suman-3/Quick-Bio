@@ -15,7 +15,7 @@ const DEFAULT_MAGNIFICATION = 60;
 const DEFAULT_DISTANCE = 140;
 
 const dockVariants = cva(
-  "mx-auto w-max mt-8 h-[58px] p-2 flex items-end gap-2 rounded-2xl border dark:border-[#707070]",
+  "mx-auto w-max mt-8 h-[58px] p-2 flex items-end gap-2 rounded-2xl border border-gray-300/80 dark:border-none",
 );
 
 const Dock = React.forwardRef<HTMLDivElement, DockProps>(

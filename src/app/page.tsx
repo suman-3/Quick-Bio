@@ -33,9 +33,8 @@ export default function Home() {
           <Output />
         </BioProvider>
       </main>
-      <div className="w-full mt-10 flex">
-        <Footer />
-      </div>
+
+      <Footer className="mt-10" />
     </>
   );
 }
