@@ -34,7 +34,7 @@ export default function Home() {
         </BioProvider>
       </main>
 
-      <Footer className="mt-10" />
+      <Footer className="mt-4 sm:mt-5 md:mt-7 slg:mt-8 lg:mt-10" />
     </>
   );
 }

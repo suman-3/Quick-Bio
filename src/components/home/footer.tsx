@@ -22,7 +22,7 @@ export const Footer = ({ className }: FooterProps) => {
         className
       )}
     >
-      <div className="mb-3 mt-1 md:mb-0">
+      <div className="mb-2 mt-1 md:mb-0">
         <p className="text-sm">
           &copy; {currentYear}, Built with ❤️ by{" "}
           <a
@@ -34,7 +34,7 @@ export const Footer = ({ className }: FooterProps) => {
           </a>{" "}
         </p>
       </div>
-      <div className="pt-6 md:pt-0 -mt-6 flex items-center justify-center">
+      <div className="pt-6 md:pt-0 mt-0 lg:-mt-6 flex items-center justify-center">
         <Dock className="flex items-center">
           <DockIcon className="">
             <NextJsIcon className="size-6" />

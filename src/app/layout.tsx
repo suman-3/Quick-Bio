@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(GeistSans.variable, "font-sans")}>
+      <body className={cn(GeistSans.variable, "font-sans overflow-x-hidden")}>
         <GridPattern width={60} height={60} className="-z-10 opacity-75" />
         <TooltipProvider>
           <ThemeProvider
