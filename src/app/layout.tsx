@@ -7,7 +7,7 @@ import GridPattern from "@/components/magicui/grid-pattern";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "./theme-provider";
-
+import { Analytics } from '@vercel/analytics/react';
 export const metadata: Metadata = {
   title: "Qick Bio",
   description: "Effortless bio creation for everyone.",
@@ -35,6 +35,7 @@ export default function RootLayout({
             </ThemeProvider>
           </TooltipProvider>
           <Toaster />
+          <Analytics />
         </body>
       </html>
     </ClerkProvider>
