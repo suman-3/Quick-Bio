@@ -35,11 +35,13 @@ import { Info, Sparkles } from "lucide-react";
 import { Textarea } from "../ui/textarea";
 import { Switch } from "../ui/switch";
 import { generateBio } from "@/actions/action";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { BioContext } from "@/context/bio-context";
 import { toast } from "sonner";
 
 export const UserInput = () => {
+
+
   const formSchema = z.object({
     model: z.string().min(1, "model is Required"),
     tempareture: z.number().min(0, "must be atleast 0").max(2, "max limit 2"),
@@ -90,11 +92,12 @@ export const UserInput = () => {
     `;
 
     try {
-      const { data } = await generateBio(
+      const { data , usage} = await generateBio(
         userInputValues,
         values.tempareture,
         values.model
       );
+      
 
       toast("Bio Generated");
       setOutput(data);

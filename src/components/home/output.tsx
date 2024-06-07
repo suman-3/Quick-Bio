@@ -19,6 +19,12 @@ export const Output = () => {
     visible: { filter: "blur(0px)", opacity: 1 },
   };
 
+  useEffect(() => {
+    if (output.data.length > 0) {
+      setCount(output.data.length);
+    }
+   
+  }, [output.data]);
 
   return (
     <ScrollArea className="relative flex min-h-[100vh] max-h-[100vh] mt-2 flex-col rounded-xl bg-muted/50 backdrop-blur-sm overflow-hidden border border-gray-500/50">

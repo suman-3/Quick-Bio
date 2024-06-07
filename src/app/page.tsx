@@ -6,14 +6,46 @@ import GithubStarCount from "@/components/star-on-github";
 import { BioProvider } from "@/context/bio-context";
 import { ProductHunt } from "./product-hunt-icon";
 import { Footer } from "@/components/home/footer";
+import {
+  ClerkLoaded,
+  ClerkLoading,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Home() {
   return (
     <>
       <main className="grid relative grid-cols-1 slg:grid-cols-2 gap-12 px-4 py-12 sm:py-16 sm:px-8 md:px-10 slg:p-16 lg:px-24 lg:py-10">
         <div className="col-span-full w-full flex flex-col items-center justify-center space-y-2  sm:space-y-4 mb-4 text-center">
-          <div className="flex gap-2 items-center justify-end w-full">
+          <div className="flex gap-4 items-center justify-end w-full">
             <ModeToggle />
+            <SignedOut>
+              <SignInButton mode="modal" signUpForceRedirectUrl="/">
+                <Button type="button" size="sm" variant="shine">
+                  Log In
+                </Button>
+              </SignInButton>
+            </SignedOut>
+            <SignedIn>
+              <ClerkLoading>
+                <Skeleton className="h-10 w-10 rounded-full bg-gray-700/50 dark:bg-gray-300/40" />
+              </ClerkLoading>
+              <ClerkLoaded>
+                <UserButton
+                  afterSignOutUrl="/"
+                  appearance={{
+                    elements: {
+                      avatarBox: "h-9 w-9",
+                    },
+                  }}
+                />
+              </ClerkLoaded>
+            </SignedIn>
           </div>
           <div className="flex gap-4 flex-col lg:flex-row justify-center items-center w-full pb-5">
             <GithubStarCount repoUrl="https://github.com/suman-3/ai-powered-bio-gen" />
