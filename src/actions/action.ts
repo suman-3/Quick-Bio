@@ -58,6 +58,7 @@ export async function generateBio(
     warnings,
     finishReason,
     rawResponse,
+    usage,
   } = await generateObject({
     model: groq(model),
     system: systemPrompt,
@@ -68,11 +69,11 @@ export async function generateBio(
       data: z.array(
         z.object({
           bio: z.string().describe("Add generated bio here!"),
-        })
+        }),
       ),
     }),
   });
-  // console.log(warnings, finishReason, rawResponse);
 
-  return { data };
+
+  return { data, usage };
 }
