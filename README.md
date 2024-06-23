@@ -40,5 +40,3 @@ Ensure you have the following installed on your machine:
 ```
 
 # Open to contribute 
- 
- Guidelines releasing soon
