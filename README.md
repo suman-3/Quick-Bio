@@ -35,10 +35,8 @@ Ensure you have the following installed on your machine:
    setup .env file with Groq API KEY
    npm run dev
 
-   Now Your Project is Ready
 
+   Now Your Project is Reacy
 ```
 
 # Open to contribute 
- 
- Guidelines releasing soon

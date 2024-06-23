@@ -8,6 +8,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "./theme-provider";
 import { Analytics } from '@vercel/analytics/react';
+
+
 export const metadata: Metadata = {
   title: "Qick Bio",
   description: "Effortless bio creation for everyone.",
