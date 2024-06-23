@@ -9,6 +9,7 @@ import { ScrollArea } from "../ui/scroll-area";
 import { motion } from "framer-motion";
 import { RefreshButton } from "../refresh-button";
 import { useRouter } from "next/navigation";
+import SaveLabel from "./save-label";
 
 export const Output = () => {
   const { output, loading } = useContext(BioContext);
@@ -23,7 +24,6 @@ export const Output = () => {
     if (output.data.length > 0) {
       setCount(output.data.length);
     }
-   
   }, [output.data]);
 
   return (
@@ -61,13 +61,13 @@ export const Output = () => {
                 transition={{ duration: 1 }}
                 variants={defaultVariants}
                 key={index}
-                className="w-full text-sm xs:text-base border
-                   border-primary/20 rounded-md p-4 relative bg-background rounded-br-none"
+                className="w-full text-sm xs:text-base border border-primary/20 rounded-md p-4 relative bg-background rounded-br-none"
               >
                 {data.bio}
-                <span className="absolute top-[99%] right-[-0.5px]">
+                <div className="absolute top-[99%] right-0 flex space-x-2">
+                  <SaveLabel text={data.bio} />
                   <CopyLabel text={data.bio} />
-                </span>
+                </div>
               </motion.li>
             );
           })}
