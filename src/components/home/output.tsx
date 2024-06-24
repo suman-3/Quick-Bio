@@ -9,6 +9,8 @@ import { ScrollArea } from "../ui/scroll-area";
 import { motion } from "framer-motion";
 import { RefreshButton } from "../refresh-button";
 import { useRouter } from "next/navigation";
+import SaveLabel from "./save-label";
+import { Button } from "../ui/button";
 
 export const Output = () => {
   const { output, loading } = useContext(BioContext);
@@ -23,11 +25,11 @@ export const Output = () => {
     if (output.data.length > 0) {
       setCount(output.data.length);
     }
-   
   }, [output.data]);
 
   return (
-    <ScrollArea className="relative flex min-h-[100vh] max-h-[100vh] mt-2 flex-col rounded-xl bg-muted/50 backdrop-blur-sm overflow-hidden border border-gray-500/50">
+ 
+    <ScrollArea className="relative flex min-h-[84vh] max-h-[84vh] mt-2 flex-col rounded-xl bg-muted/50 backdrop-blur-sm overflow-hidden border border-gray-500/50">
       {loading && (
         <BorderBeam
           size={1200}
@@ -37,7 +39,7 @@ export const Output = () => {
           className="z-10"
         />
       )}
-      <div className="flex items-center justify-end gap-3 pr-3 pt-2">
+      <div className="flex items-center justify-end gap-3 pr-3 pt-2 absolute top-1 right-3 z-10">
         <RefreshButton />
         <Badge className="z-20 inline-flex h-auto animate-background-shine cursor-pointer items-center justify-center rounded-full border border-gray-800 bg-[linear-gradient(110deg,#000,45%,#4D4B4B,55%,#000)] bg-[length:250%_100%] px-4 py-1 text-xs font-medium text-gray-300 ">
           Output
@@ -61,18 +63,20 @@ export const Output = () => {
                 transition={{ duration: 1 }}
                 variants={defaultVariants}
                 key={index}
-                className="w-full text-sm xs:text-base border
-                   border-primary/20 rounded-md p-4 relative bg-background rounded-br-none"
+                className="w-full text-sm xs:text-base border border-primary/20 rounded-md p-4 relative bg-background rounded-br-none"
               >
                 {data.bio}
-                <span className="absolute top-[99%] right-[-0.5px]">
+                <div className="absolute top-[99%] right-0 flex space-x-2">
+                  <SaveLabel text={data.bio} />
                   <CopyLabel text={data.bio} />
-                </span>
+                </div>
               </motion.li>
             );
           })}
         </ul>
       )}
     </ScrollArea>
+
+
   );
 };

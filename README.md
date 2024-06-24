@@ -36,7 +36,7 @@ Ensure you have the following installed on your machine:
    npm run dev
 
 
-   Now Your Project is Reacy
+   Now Your Project is Ready
 ```
 
 # Open to contribute 
