@@ -23,7 +23,7 @@ const getBio = async (): Promise<{bios: Bio[]}> => {
   }
 }
 
-const BioCard = () => {
+const BioCard: React.FC = () => {
   const [bios, setBios] = useState<Bio[]>([]);
 
   useEffect(() => {
