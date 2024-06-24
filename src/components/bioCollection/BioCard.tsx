@@ -54,13 +54,12 @@ const BioCard: React.FC = () => {
               transition={{ duration: 1 }}
               variants={defaultVariants}
               key={bio._id}
-              className="col-span-1 md:col-span-3 w-full h-full text-sm xs:text-base rounded-md p-4 relative bg-background text-black border dark:border-none dark:text-white flex flex-col gap-1 lg:ml-2"
+              className="col-span-1 md:col-span-3 w-full h-full text-sm xs:text-base rounded-md p-4 relative bg-background text-black borde dark:border-none dark:text-white flex flex-col gap-1 lg:ml-2"
             >
               <p className="mb-2 text-left text-sm xs:text-base">{bio.bio}</p>
               <div className="flex md:flex-col lg:flex-row items-left lg:items-center justify-between w-full gap-3">
                 <p className="text-sm">
                   <span className="font-semibold">Saved At: </span>
-                  {/* {new Date(bio.createdAt).toLocaleDateString()} */}
                   {format(new Date(bio.createdAt), "MMM d, yyyy")}
                 </p>
                 <div className="flex space-x-1">
