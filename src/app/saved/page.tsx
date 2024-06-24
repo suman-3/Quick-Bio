@@ -1,4 +1,3 @@
-"use client";
 import BioCard from "@/components/bioCollection/BioCard";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -6,19 +5,8 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Home } from "lucide-react";
 import { Bio, getBio } from "@/actions/get-bio";
-import { Skeleton } from "@/components/ui/skeleton";
 
 const page = () => {
-  const [bios, setBios] = useState<Bio[]>([]);
-
-  useEffect(() => {
-    const fetchBios = async () => {
-      const data = await getBio();
-      setBios(data.bios);
-    };
-    fetchBios();
-  }, []);
-
   return (
     <div className="w-full h-full flex flex-col items-center py-10 gap-3 md:gap-4 lg:gap-5 relative">
       <div className="">
@@ -28,19 +16,9 @@ const page = () => {
       </div>
 
       <div className="h-full w-full px-4 md:px-6 lg:px-10">
-        {bios.length === 0 ? (
-          <div className="flex min-h-[60vh] max-h-[84vh] items-center justify-center mt-2 rounded-lg bg-muted/50 backdrop-blur-sm overflow-hidden border border-gray-500/50">
-            <Link href="/" className="flex flex-col space-y-2">
-              <span className="text-xl md:text-2xl">
-                Bio Collection is Empty
-              </span>
-            </Link>
-          </div>
-        ) : (
-          <ScrollArea className="flex min-h-[60vh] max-h-[84vh] mt-2 flex-col rounded-lg bg-muted/50 backdrop-blur-sm overflow-hidden border border-gray-500/50 px-2 md:px-4 lg:px-5 py-3 lg:py-5">
-            <BioCard />
-          </ScrollArea>
-        )}
+        <ScrollArea className="flex min-h-[60vh] max-h-[84vh] mt-2 flex-col rounded-lg bg-muted/50 backdrop-blur-sm overflow-hidden border border-gray-500/50 px-2 md:px-4 lg:px-5 py-3 lg:py-5">
+          <BioCard />
+        </ScrollArea>
       </div>
       <Link href="/">
         <Button
