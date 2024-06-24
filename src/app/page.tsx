@@ -1,3 +1,4 @@
+"use client";
 import { Output } from "@/components/home/output";
 import { UserInput } from "@/components/home/user-input";
 import SparklesText from "@/components/magicui/sparkles-text";
@@ -16,12 +17,16 @@ import {
 } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import Link from "next/link";
+
 
 export default function Home() {
+
+
   return (
     <>
       <main className="grid relative grid-cols-1 slg:grid-cols-2 gap-12 px-4 py-12 sm:py-16 sm:px-8 md:px-10 slg:p-16 lg:px-24 lg:py-10">
-        <div className="col-span-full w-full flex flex-col items-center justify-center space-y-2  sm:space-y-4 mb-4 text-center">
+        <div className="col-span-full w-full flex flex-col items-center justify-center space-y-2 sm:space-y-4 mb-4 text-center">
           <div className="flex gap-4 items-center justify-end w-full">
             <ModeToggle />
             <SignedOut>
@@ -62,7 +67,16 @@ export default function Home() {
         </div>
         <BioProvider>
           <UserInput />
-          <Output />
+          <div className="relative w-full">
+            <Output />
+            <div className="absolute right-0 mt-4">
+              <Link href={"/savedBio"}>
+              <Button>
+                Saved Bios!
+              </Button>
+              </Link>
+            </div>
+          </div>
         </BioProvider>
       </main>
 
