@@ -1,6 +1,10 @@
-"use client"
-import React, { useEffect, useState } from 'react';
-import DeleteLabel from './delete-label';
+"use client";
+import React, { useEffect, useState } from "react";
+import DeleteLabel from "./delete-label";
+import { Skeleton } from "../ui/skeleton";
+import { motion } from "framer-motion";
+import { format } from "date-fns";
+import CopyLabel from "../home/copy-label";
 
 interface Bio {
   _id: string;
@@ -8,9 +12,9 @@ interface Bio {
   createdAt: string;
 }
 
-const getBio = async (): Promise<{bios: Bio[]}> => {
+const getBio = async (): Promise<{ bios: Bio[] }> => {
   try {
-    const res = await fetch('/api/bio', {
+    const res = await fetch("/api/bio", {
       cache: "no-store",
     });
     if (!res.ok) {
@@ -21,7 +25,7 @@ const getBio = async (): Promise<{bios: Bio[]}> => {
     console.log("Error loading bios", error);
     return { bios: [] };
   }
-}
+};
 
 const BioCard: React.FC = () => {
   const [bios, setBios] = useState<Bio[]>([]);
@@ -30,23 +34,52 @@ const BioCard: React.FC = () => {
     const fetchBios = async () => {
       const data = await getBio();
       setBios(data.bios);
-    }
+    };
     fetchBios();
-  }, [])
+  }, []);
+
+  const defaultVariants = {
+    hidden: { filter: "blur(10px)", opacity: 0 },
+    visible: { filter: "blur(0px)", opacity: 1 },
+  };
 
   return (
-    <div className='flex flex-col space-y-4'>
-      {bios.map((bio) => (
-        <div key={bio._id} className="bg-white p-6 rounded-lg shadow-md border border-gray-200 transition-shadow duration-300 hover:shadow-lg">
-          <p className="text-gray-800 text-base mb-2">{bio.bio}</p>
-          <p className="text-gray-500 text-sm"><span className='font-bold'>Date: </span>{new Date(bio.createdAt).toLocaleDateString()}</p>
-          <div className="flex left-0 ">
-          <DeleteLabel id={bio._id}/>
-          </div>
-        </div>
-      ))}
+    <div className="grid grid-cols-1 md:grid-cols-9 gap-3 md:gap-4 lg:gap-5">
+      {bios.length > 0 ? (
+        <>
+          {bios.map((bio) => (
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 1 }}
+              variants={defaultVariants}
+              key={bio._id}
+              className="col-span-1 md:col-span-3 w-full h-full text-sm xs:text-base rounded-md p-4 relative bg-background text-white flex flex-col gap-1"
+            >
+              <p className="mb-2 text-left text-sm xs:text-base">{bio.bio}</p>
+              <div className="flex md:flex-col lg:flex-row items-left lg:items-center justify-between w-full gap-3">
+                <p className="text-sm">
+                  <span className="font-semibold">Saved At: </span>
+                  {/* {new Date(bio.createdAt).toLocaleDateString()} */}
+                  {format(new Date(bio.createdAt), "MMM d, yyyy")}
+                </p>
+                <div className="flex space-x-1">
+                  <DeleteLabel id={bio._id} className="rounded-sm p-1 px-2" />
+                  <CopyLabel text={bio.bio} className="rounded-sm" />
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </>
+      ) : (
+        <>
+          <Skeleton className="col-span-1 md:col-span-3 h-[20vh] md:h-[21vh] lg:h-[23vh] z-10 bg-gray-400/30 dark:bg-gray-300/20 backdrop-blur-sm " />
+          <Skeleton className="col-span-1 md:col-span-3 h-[20vh] md:h-[21vh] lg:h-[23vh] z-10 bg-gray-400/30 dark:bg-gray-300/20 backdrop-blur-sm " />
+          <Skeleton className="col-span-1 md:col-span-3 h-[20vh] md:h-[21vh] lg:h-[23vh] z-10 bg-gray-400/30 dark:bg-gray-300/20 backdrop-blur-sm " />
+        </>
+      )}
     </div>
-  )
-}
+  );
+};
 
 export default BioCard;

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Button } from "../ui/button";
 import { toast } from "sonner";
+import { cn } from "@/lib/utils";
 
-const CopyLabel = ({ text }: { text: string }) => {
+const CopyLabel = ({ text, className }: { text: string, className?: string }) => {
   const [label, setLabel] = useState("copy");
 
   const copyToClipboard = async (text: string) => {
@@ -23,7 +24,7 @@ const CopyLabel = ({ text }: { text: string }) => {
     <Button
       onClick={handleClick}
       variant={"outline"}
-      className="text-sm text-muted-foreground bg-background my-0 h-auto rounded-none rounded-bl-md rounded-br-md border border-primary/20  hover:bg-primary hover:text-primary-foreground pt-0 pb-0.5"
+      className={cn("text-sm text-muted-foreground bg-background my-0 h-auto rounded-none rounded-bl-md rounded-br-md border border-primary/20  hover:bg-primary hover:text-primary-foreground pt-0 pb-0.5", className)}
     >
       {label}
     </Button>
