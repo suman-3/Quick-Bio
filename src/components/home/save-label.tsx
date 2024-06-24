@@ -1,22 +1,29 @@
+"use client"
 import React, { useState } from "react";
 import { Button } from "../ui/button";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@clerk/nextjs"; 
 
 interface textProps {
   text:string
 }
 
 const SaveLabel = ({ text }:textProps) => {
+
+  
   const [label, setLabel] = useState("save");
   const router = useRouter();
+  const { getToken } = useAuth();
 
   const handleClick = async () => {
     try {
+      const token = await getToken();
       const res = await fetch('/api/bio', {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
         },
         body: JSON.stringify({ bio: text })
       });
