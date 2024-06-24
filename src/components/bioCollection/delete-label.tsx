@@ -1,10 +1,15 @@
 import React, { useState } from 'react'
 import { Button } from '../ui/button'
+import { toast } from 'sonner';
+interface deleteProps{
+  id: string
+}
 
-const DeleteLabel = () => {
+const DeleteLabel = ({id}:deleteProps) => {
     const [label, setLabel] = useState("delete");
     const handleClick = async ()=>{
         setLabel("deleted")
+        toast("bio deleted")
     }
   return (
     <div>

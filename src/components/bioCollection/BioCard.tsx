@@ -1,5 +1,4 @@
 "use client"
-import Bio from '@/models/bio';
 import React, { useEffect, useState } from 'react';
 import DeleteLabel from './delete-label';
 
@@ -40,8 +39,10 @@ const BioCard = () => {
       {bios.map((bio) => (
         <div key={bio._id} className="bg-white p-6 rounded-lg shadow-md border border-gray-200 transition-shadow duration-300 hover:shadow-lg">
           <p className="text-gray-800 text-base mb-2">{bio.bio}</p>
-          <p className="text-gray-500 text-sm">{new Date(bio.createdAt).toLocaleDateString()}</p>
-          <DeleteLabel/>
+          <p className="text-gray-500 text-sm"><span className='font-bold'>Date: </span>{new Date(bio.createdAt).toLocaleDateString()}</p>
+          <div className="flex left-0 ">
+          <DeleteLabel id={bio._id}/>
+          </div>
         </div>
       ))}
     </div>
