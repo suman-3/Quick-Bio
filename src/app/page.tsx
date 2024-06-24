@@ -18,10 +18,21 @@ import {
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import Link from "next/link";
-
+import { Save, Star } from "lucide-react";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
+  const handleRedirectSaved = () => {
+    setLoading(true);
+    setTimeout(() => {
+      router.push("/saved");
+      setLoading(false);
+    }, 2000);
+  };
 
   return (
     <>
@@ -67,15 +78,28 @@ export default function Home() {
         </div>
         <BioProvider>
           <UserInput />
-          <div className="relative w-full">
+          <div className="w-full flex flex-col gap-6">
             <Output />
-            <div className="absolute right-0 mt-4">
-              <Link href={"/savedBio"}>
-              <Button>
-                Saved Bios!
+            <SignedOut>
+              <SignInButton mode="modal" signUpForceRedirectUrl="/">
+                <Button className="flex items-center gap-2" variant="shine">
+                  <Star className="size-4 shrink-0" />
+                  Sign in to save
+                </Button>
+              </SignInButton>
+            </SignedOut>
+            <SignedIn>
+              <Button
+                className="flex items-center gap-2"
+                variant="shine"
+                loadingText="Redirecting"
+                isLoading={loading}
+                onClick={handleRedirectSaved}
+              >
+                <Save className="size-4 shrink-0" />
+                Saved Bio
               </Button>
-              </Link>
-            </div>
+            </SignedIn>
           </div>
         </BioProvider>
       </main>

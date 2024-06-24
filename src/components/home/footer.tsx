@@ -31,6 +31,14 @@ export const Footer = ({ className }: FooterProps) => {
             className="font-semibold cursor-pointer"
           >
             Suman
+          </a>
+          {" & "}
+          <a
+            // href="https://suman-mondal-portfolio.vercel.app/"
+            target="_blank"
+            className="font-semibold"
+          >
+            Gourab
           </a>{" "}
         </p>
       </div>
