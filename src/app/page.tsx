@@ -1,4 +1,5 @@
 "use client";
+
 import { Output } from "@/components/home/output";
 import { UserInput } from "@/components/home/user-input";
 import SparklesText from "@/components/magicui/sparkles-text";
