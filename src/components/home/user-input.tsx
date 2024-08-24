@@ -349,6 +349,7 @@ export const UserInput = () => {
             <Sparkles className="size-4" />
             Generate
           </Button>
+          
         </form>
       </Form>
     </div>

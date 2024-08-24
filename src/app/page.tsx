@@ -1,4 +1,5 @@
 "use client";
+
 import { Output } from "@/components/home/output";
 import { UserInput } from "@/components/home/user-input";
 import SparklesText from "@/components/magicui/sparkles-text";
@@ -36,7 +37,7 @@ export default function Home() {
 
   return (
     <>
-      <main className="grid relative grid-cols-1 slg:grid-cols-2 gap-12 px-4 py-12 sm:py-16 sm:px-8 md:px-10 slg:p-16 lg:px-24 lg:py-10">
+     <main className="grid relative grid-cols-1 slg:grid-cols-2 gap-12 px-4 py-12 sm:py-16 sm:px-8 md:px-10 slg:p-16 lg:px-24 lg:py-10">
         <div className="col-span-full w-full flex flex-col items-center justify-center space-y-2 sm:space-y-4 mb-4 text-center">
           <div className="flex gap-4 items-center justify-end w-full">
             <ModeToggle />
@@ -103,6 +104,7 @@ export default function Home() {
           </div>
         </BioProvider>
       </main>
+      
 
       <Footer className="mt-4 sm:mt-5 md:mt-7 slg:mt-8 lg:mt-10" />
     </>
