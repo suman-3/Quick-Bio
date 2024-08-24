@@ -78,6 +78,7 @@ const config = {
           to: {
             backgroundPosition: "var(--bg-size) 0",
           },
+          
         },
         shine: {
           from: { backgroundPosition: "200% 0" },
@@ -99,7 +100,11 @@ const config = {
           "to": {
             "backgroundPosition": "-200% 0"
           }
-        }
+        },
+        sparkle: {
+          "0%, 100%": { opacity: "0.75", scale: "0.9" },
+          "50%": { opacity: "1", scale: "1" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -108,7 +113,8 @@ const config = {
         shine: "shine 8s ease-in-out infinite",
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
         flashing: "flashing 1.4s infinite linear",
-         "background-shine": "background-shine 2s linear infinite"
+         "background-shine": "background-shine 2s linear infinite",
+         sparkle: "sparkle 2s ease-in-out infinite",
       },
     },
   },
